@@ -8,15 +8,14 @@
         <version>3.9.1</version>
     </parent>
 
-    <groupId>io.github.avdev4j</groupId>
-    <artifactId>avdev-dependencies</artifactId>
+    <groupId>org.entando</groupId>
+    <artifactId>entando-bundle-bom</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Avdev JHipster server-side dependencies</name>
-    <description>Avdev bill of materials</description>
+    <name>Entando JHipster server-side dependencies</name>
+    <description>Entando bundle bill of materials</description>
 
     <properties>
-        <!-- We are overriding the Hibernate version -->
-        <hibernate.version>5.4.16.Final</hibernate.version>
+        <!-- Add libraries to override here -->
     </properties>
 </project>

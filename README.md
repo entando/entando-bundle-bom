@@ -7,8 +7,8 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.github.avdev4j</groupId>
-                <artifactId>avdev-dependencies</artifactId>
+                <groupId>org.entando</groupId>
+                <artifactId>entando-bundle-bom</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
