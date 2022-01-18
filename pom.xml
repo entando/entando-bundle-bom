@@ -2,21 +2,48 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>io.github.jhipster</groupId>
         <artifactId>jhipster-dependencies</artifactId>
         <version>3.9.1</version>
     </parent>
-
     <groupId>org.entando</groupId>
     <artifactId>entando-bundle-bom</artifactId>
     <packaging>pom</packaging>
-    <version>6.3.2</version>
+    <version>7.0.0-SNAPSHOT</version>
     <name>Entando JHipster server-side dependencies</name>
     <description>Entando bundle bill of materials</description>
+    <url>http://www.entando.com/</url>
+    <licenses>
+        <license>
+            <name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3, 29 June 2007</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>Entando Inc.</name>
+        <url>http://www.entando.com/</url>
+    </organization>
+
+    <repositories>
+        <repository>
+            <id>jx-releases</id>
+            <url>https://nexus-jx.apps.serv.run/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <properties>
+        <github.organization>entando</github.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.organization>${github.organization}</sonar.organization>
+        <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
         <!-- Add libraries version to override here -->
         <postgresql.version>42.2.13</postgresql.version>
         <hibernate.version>5.4.24.Final</hibernate.version>
@@ -120,7 +147,20 @@
                 <artifactId>bcprov-jdk15on</artifactId>
                 <version>${bouncycastle.bcprov}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version></plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version></plugin>
+        </plugins>
+    </build>
 </project>
