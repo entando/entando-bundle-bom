@@ -2,125 +2,83 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>io.github.jhipster</groupId>
+        <groupId>tech.jhipster</groupId>
         <artifactId>jhipster-dependencies</artifactId>
-        <version>3.9.1</version>
+        <version>7.2.0</version>
+        <relativePath/>
     </parent>
-
     <groupId>org.entando</groupId>
     <artifactId>entando-bundle-bom</artifactId>
     <packaging>pom</packaging>
-    <version>6.3.2</version>
+    <version>7.0.0-SNAPSHOT</version>
     <name>Entando JHipster server-side dependencies</name>
     <description>Entando bundle bill of materials</description>
+    <url>http://www.entando.com/</url>
+    <licenses>
+        <license>
+            <name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3, 29 June 2007</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>Entando Inc.</name>
+        <url>http://www.entando.com/</url>
+    </organization>
+
+    <repositories>
+        <repository>
+            <id>jx-releases</id>
+            <url>https://nexus-jx.apps.serv.run/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <properties>
+        <github.organization>entando</github.organization>
+        <gpg.skip>true</gpg.skip>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.organization>${github.organization}</sonar.organization>
+        <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
         <!-- Add libraries version to override here -->
-        <postgresql.version>42.2.13</postgresql.version>
-        <hibernate.version>5.4.24.Final</hibernate.version>
-        <springfox.version>2.9.2</springfox.version>
-        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
-        <spring-boot-starter-cloud-connectors.version>2.2.13.RELEASE</spring-boot-starter-cloud-connectors.version>
-        <jackson.version>2.11.0</jackson.version>
-        <commons-io.version>2.7</commons-io.version>
-        <guava.version>30.0-jre</guava.version>
-        <undertow.version>2.2.4.Final</undertow.version>
-        <httpclient.version>4.5.13</httpclient.version>
-        <jboss-xnio.version>3.8.1.Final</jboss-xnio.version>
-        <oauth2-oidc-sdk.version>8.36.2</oauth2-oidc-sdk.version>
-        <spring-core.version>5.2.9.RELEASE</spring-core.version>
-        <spring-web.version>5.2.9.RELEASE</spring-web.version>
-        <snakeyaml.version>1.28</snakeyaml.version>
-        <micrometer.version>1.7.0</micrometer.version>
-        <bouncycastle.bcprov>1.68</bouncycastle.bcprov>
+        <log4j2.version>2.17.1</log4j2.version>
     </properties>
 
     <!-- Add libraries dependencies to override here -->
-    <dependencyManagement>
+    <!--dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.jboss.xnio</groupId>
-                <artifactId>xnio-api</artifactId>
-                <version>${jboss-xnio.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons-io.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-spring-webflux</artifactId>
-                <version>${springfox.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-bean-validators</artifactId>
-                <version>${springfox.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.nimbusds</groupId>
-                <artifactId>oauth2-oidc-sdk</artifactId>
-                <version>${oauth2-oidc-sdk.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>${spring-web.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring-web.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-cloud-connectors</artifactId>
-                <version>${spring-boot-starter-cloud-connectors.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-core</artifactId>
-                <version>${micrometer.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${snakeyaml.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>${bouncycastle.bcprov}</version>
-            </dependency>
 
         </dependencies>
-    </dependencyManagement>
+    </dependencyManagement-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>false</extensions>
+                <configuration>
+                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version></plugin>
+        </plugins>
+    </build>
 </project>
