@@ -48,6 +48,7 @@
         <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
         <!-- Add libraries version to override here -->
         <log4j2.version>2.17.1</log4j2.version>
+        <postgresql.version>42.2.25</postgresql.version>
     </properties>
 
     <!-- Add libraries dependencies to override here -->
