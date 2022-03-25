@@ -42,7 +42,6 @@
 
     <properties>
         <github.organization>entando</github.organization>
-        <gpg.skip>true</gpg.skip>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>${github.organization}</sonar.organization>
         <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
@@ -61,14 +60,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <extensions>false</extensions>
-                <configuration>
-                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
