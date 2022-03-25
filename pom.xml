@@ -60,7 +60,7 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus-release</id>
+            <id>maven-central</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
@@ -86,7 +86,7 @@
                 <version>${nexus-staging-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>nexus-release</serverId>
+                    <serverId>maven-central</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
