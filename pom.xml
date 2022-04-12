@@ -11,7 +11,7 @@
     <groupId>org.entando</groupId>
     <artifactId>entando-bundle-bom</artifactId>
     <packaging>pom</packaging>
-    <version>7.0.0</version>
+    <version>7.0.1</version>
     <name>Entando JHipster server-side dependencies</name>
     <description>Entando bundle bill of materials</description>
     <url>http://www.entando.com/</url>
@@ -50,14 +50,22 @@
         <log4j2.version>2.17.1</log4j2.version>
         <postgresql.version>42.2.25</postgresql.version>
         <mysql-jdbc.version>8.0.28</mysql-jdbc.version>
+        <spring-boot.version>2.5.12</spring-boot.version>
     </properties>
 
     <!-- Add libraries dependencies to override here -->
-    <!--dependencyManagement>
+    <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
-    </dependencyManagement-->
+    </dependencyManagement>
 
     <build>
         <plugins>
