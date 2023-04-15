@@ -46,14 +46,11 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>${github.organization}</sonar.organization>
         <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
-        <!-- Add libraries version to override here -->
-        <log4j2.version>2.17.1</log4j2.version>
-        <postgresql.version>42.2.25</postgresql.version>
-        <mysql-jdbc.version>8.0.28</mysql-jdbc.version>
         <spring-boot.version>2.7.3</spring-boot.version>
+        <!-- Add libraries version to override below -->
     </properties>
 
-    <!-- Add libraries dependencies to override here -->
+    <!-- Add libraries dependencies to override below -->
     <dependencyManagement>
         <dependencies>
             <dependency>
